@@ -33,42 +33,42 @@
 - 伪影:本身树枝之间应该是干净的天空，但是由于remosaic造成了伪影。<br>
 
 <div align=center>
-<img src="https://github.com/623-wzy/wzy/blob/main/image/640(1).webp"/>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/640%20(1).webp"/>
 </div>
 
 - 高饱和色降饱和:本身应该是连续的黄色的草丛，却出现色彩降饱和，呈现灰色。由于黄色饱和度高，所以比较容易被察觉饱和度的下降。<br>
 
 <div align=center>
-<img src="https://github.com/623-wzy/wzy/blob/main/image/640(2).webp"/>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/640%20(2).webp"/>
 </div>
 
 - 锯齿线断裂:稍微有些倾斜的直线，很容易出现这种因为remosaic造成的锯齿或者断续。<br>
 
 <div align=center>
-<img src="https://github.com/623-wzy/wzy/blob/main/image/640(3).webp"/>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/640%20(3).webp"/>
 </div>
 
 - 拐角伪点:在高频的拐点，很容易出现伪点，这在demosaic和DPC算法里也容易出现，由于对线条纹理的方向判断错误，错误的插值导致的伪点。<br>
 
 <div align=center>
-<img src="https://github.com/623-wzy/wzy/blob/main/image/640(4).webp"/>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/640%20(4).webp"/>
 </div>
 
 <div align=center>
-<img src="https://github.com/623-wzy/wzy/blob/main/image/640(5).webp"/>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/640%20(5).webp"/>
 </div>
 
 - 伪彩:可以看到树干和枯草的高频区域出现一些彩色的artefact。<br>
 
 <div align=center>
-<img src="https://github.com/623-wzy/wzy/blob/main/image/640(6).webp"/>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/640%20(6).webp"/>
 </div>
 
 &emsp;&emsp; 现在的remosaic算法也逐渐从传统的信号处理方法过渡到基于机器学习/深度学习的图像处理方法。传统的remosaic算法流程大致分为三步：1.首先利用Quadra CFA的插值算法，转换Quad Bayer Raw数据变为RGB数据，类似我们平时看到的Jpeg 2.得到的RGB Image再使用RGB Image转Bayer的算法，将其分解成Bayer Raw Image 3.送回正常ISP进行下一步处理。<br>
 &emsp;&emsp; 利用传统的图像质量测量方法，可以比较各remosaic算法的优劣。测试Chart可以选择Image Engineering 的all in one chart。高频的细节，直线，斜边，各种颜色在这个chart里都有，所以可以满足客观评价remosaic的需求。<br>
 
 <div align=center>
-<img src="https://github.com/623-wzy/wzy/blob/main/image/640(7).webp"/>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/640%20(7).webp"/>
 </div>
 
 &emsp;&emsp; 各IQ Metrics计算： $(I是待测图像，\hat{I} 是真实图像)$ <br>
