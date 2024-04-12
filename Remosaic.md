@@ -74,3 +74,6 @@
 ### Crosstalk补偿（QPDC）
 &emsp;&emsp; 在整个转换过程中，还会涉及到PD补偿、坏点补偿和Crosstalk补偿等一些优化，主要是优化可能在remosaic转换中产生的False Color/Color Noise/解析度丢失等常见问题。对于Quadra CFA的芯片像素，由于所处位置的不同，实际上每个像素点的crosstalk不同导致感光能力有一定差别，通常就需要引入Crosstalk校准来消除这种差异。Crosstalk校准工具，通常将全图分成多个ROI方块，计算各像素通道的能量并确定其补偿数据，芯片再使用这些校准数据让原本不均匀状态的能量分布变得更为平衡。Crosstalk校准补偿在实际图像上的反映主要是去除由于信号差别造成的格子，锯齿状等的色块干扰，这种干扰现象通常在拍摄单一色块的画面会表现得更为明显。<br>
 
+<div align=center>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/908fa0ec08fa513d95c743b255a8a9f7b3fbd9bb.webp"/>
+</div>
