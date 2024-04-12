@@ -2,6 +2,8 @@
 ### 一、噪声模型
 &emsp;&emsp; 在实际的成像系统中，噪声的分布特性是非常复杂的。对于相机传感器直接输出的原始数据，也称为raw图像，一般情况下噪声用混合Poisson-Gaussian分布进行建模。（在极暗的环境下还会有较为显著的行噪声，具体可以参考CVPR2020的ELD）。
 假设 $\mathbf{Y}$ , $\mathbf{X}$ 和 $\mathbf{N}$ 分别为含噪的输入图像，对应的干净图像，以及噪声分量，则有： $$\mathbf{Y} \sim \mathcal{N}\left(\mathbf{X}, \boldsymbol{\Sigma}^{2}\right)$$ <br>
+其中噪声方差： $$\Sigma^{2} = \alpha x + \sigma ^{2} $$ <br>
+参数 $\alpha$ 和 $\sigma$ 分别表示混合噪声中Poisson分量和Gaussian分量的强度。<br>
 
 ```python
 def gat(z,sigma,alpha,g):
