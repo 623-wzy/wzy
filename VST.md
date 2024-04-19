@@ -45,7 +45,7 @@ $2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$
 &emsp;&emsp; 广义Anscombe逆变换表示为： $$ y\mapsto \frac{1}{4} y^{2} - \frac{1}{8} + \frac{1}{4}\sqrt{\frac{3}{2}} y^{-1} - \frac{11}{8} y^{-2} + \frac{5}{8} \sqrt{\frac{3}{2}} y^{-3} - \sigma^{2} , \hat{y} =a * y+m ，\sigma = \frac{\hat{\sigma}}{a}$$ <br>
 
 
-test: $$f(x)\left\{\begin{matrix}
+test: $$\left\{\begin{matrix}
  x & x\\
  x & x
 \end{matrix}\right.$$
