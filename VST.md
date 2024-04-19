@@ -15,7 +15,7 @@
 &emsp;&emsp; **Anscombe变换**以Francis Anscombe的名字命名，是一种方差稳定变换，它将具有泊松分布的随机变量变换为具有近似标准高斯分布的随机变量。Anscombe变换广泛应用于光子限制成像（天文学、X 射线），其中图像自然遵循泊松定律。Anscombe变换通常用于对数据进行预处理，以使标准差近似恒定。然后采用针对加性高斯白噪声框架设计的去噪算法；然后通过对去噪数据应用逆安斯科姆变换来获得最终估计。<br>
 &emsp;&emsp; 对于泊松分布，平均值 $m$ 与方差 $\nu$ 不独立： $m=\nu$ 。Anscombe变换： $$A：x\mapsto 2\sqrt{x+3/8} $$ <br>
 &emsp;&emsp; Anscombe变换旨在变换泊松数据分布，使方差大约为1，以获得足够大的均值；对于均值为零方差仍为0。它转换泊松数据 $x$ （均值 $m$ ）到均值为 
-$2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$ 和 标准差为 $1+O\left(\frac{1}{m^{2}}\right)$ 的近似高斯数据。对于m比较大的情况，这种近似会更加准确。至于为何选择常数项为3/8，是因为 $2\sqrt{x+c} $ 的方差变换形式会有一个附加项为 $\frac{\frac{3}{8} -c}{m}$ 。<br>
+$2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$ 和 标准差为 $1+O\left(\frac{1}{m^{2}}\right)$ 的近似高斯数据。对于m比较大的情况，这种近似会更加准确。至于为何选择常数项为3/8，是因为 $2\sqrt{x+c}$ 的方差变换形式会有一个附加项为 $\frac{\frac{3}{8} -c}{m}$ 。<br>
 
 <div align=center>
 <img src="https://github.com/623-wzy/wzy/blob/main/image/20181025105803813.png"/>
@@ -44,7 +44,6 @@ $2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$
 </div>
 
 &emsp;&emsp; 广义Anscombe逆变换表示为： $$ y\mapsto \frac{1}{4} y^{2} - \frac{1}{8} + \frac{1}{4}\sqrt{\frac{3}{2}} y^{-1} - \frac{11}{8} y^{-2} + \frac{5}{8} \sqrt{\frac{3}{2}} y^{-3} - \sigma^{2} ，\hat{y} =ay+m ，\sigma = \frac{\hat{\sigma}}{a}$$ <br>
-
 ```python
 def gat(z,sigma,alpha,g):
     _alpha=torch.ones_like(z)*alpha
