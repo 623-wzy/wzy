@@ -79,4 +79,7 @@ def inverse_gat(z,sigma1,alpha,g,method='asym'):
 2.[FBI-Denoise(知乎)](https://zhuanlan.zhihu.com/p/435957028) <br>
 3.[VST-wiki](https://en.wikipedia.org/wiki/Variance-stabilizing_transformation) <br>
 4.[Anscombe-wiki](https://en.wikipedia.org/wiki/Anscombe_transform#cite_note-Anscombe1948-1) <br>
+5.[最优GAT推理：Optimal inversion of the generalized Anscombe
+transformation for Poisson-Gaussian noiseGAT推理](https://github.com/623-wzy/wzy/blob/main/paper/Optimal%20Inversion%20of%20the%20Generalized%20Anscombe%20Transformation%20for%20Poisson-Gaussian%20Noise.pdf)<br>
+6.[GAT_VST应用论文](https://github.com/623-wzy/wzy/blob/main/paper/A_Poisson-Gaussian_Denoising_Dataset_With_Real_Fluorescence_Microscopy_Images_CVPR_2019.pdf)
 
