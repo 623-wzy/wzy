@@ -34,7 +34,7 @@ $2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$
 &emsp;&emsp; **渐进无偏逆虽然减轻了偏差问题，但不适用光子限制成像，隐式映射提供了精确无偏逆：** $$\mathrm{E}\left[\left.2 \sqrt{x+\frac{3}{8}} \right\rvert\, m\right]=2 \sum_{x=0}^{+\infty}\left(\sqrt{x+\frac{3}{8}} \cdot \frac{m^{x} e^{-m}}{x !}\right) \mapsto m$$ <br>
 &emsp;&emsp; **精确无偏逆的封闭形式近似：** $$y\mapsto \frac{1}{4} y^{2} - \frac{1}{8} + \frac{1}{4}\sqrt{\frac{3}{2}} y^{-1} - \frac{11}{8} y^{-2} + \frac{5}{8} \sqrt{\frac{3}{2}} y^{-3} $$ <br>
 ### GAT (Generalized Anscombe transform)
-&emsp;&emsp; 广义Anscombe变换表示为： $$f(\hat{x} )=\frac{2}{a} \sqrt{a\hat{x} + \frac{3}{8} a^{2} + \hat{\sigma} - am} ，if x > -\frac{3}{8} a - \frac{\hat{\sigma}}{a} + m other 0$$ <br>
+&emsp;&emsp; 广义Anscombe变换表示为： $$f(\hat{x} )=\frac{2}{a} \sqrt{a\hat{x} + \frac{3}{8} a^{2} + \hat{\sigma} - am} ，x > -\frac{3}{8} a - \frac{\hat{\sigma}}{a} + m$$ <br>
 &emsp;&emsp; 当 $a=1，\sigma=0，m=0$ 时，泊松高斯分布退化为泊松分布，GAT也退化为AT。对上述公式归一化： $$x=\frac{\hat{x}-m}{a}，\sigma=\frac{\hat{\sigma}}{a}$$ <br>
 &emsp;&emsp; 下图（a）显示了不同 $\sigma$ 下的Anscombe变换曲线，图c显示了不同 $\sigma$ 下精确无偏逆与代数逆的差异，图（b）则显示了不同 $\sigma$ 下Anscombe变换后的方差表现，可以发现当 $\sigma>2$ 时 变换后方差更稳定在理想值1附近。
 
@@ -44,6 +44,11 @@ $2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$
 
 &emsp;&emsp; 广义Anscombe逆变换表示为： $$ y\mapsto \frac{1}{4} y^{2} - \frac{1}{8} + \frac{1}{4}\sqrt{\frac{3}{2}} y^{-1} - \frac{11}{8} y^{-2} + \frac{5}{8} \sqrt{\frac{3}{2}} y^{-3} - \sigma^{2} , \hat{y} =a * y+m ，\sigma = \frac{\hat{\sigma}}{a}$$ <br>
 
+
+test: $$f(x)\left\{\begin{matrix}
+ x & x\\
+ x & x
+\end{matrix}\right.$$
 ```python
 def gat(z,sigma,alpha,g):
     _alpha=torch.ones_like(z)*alpha
