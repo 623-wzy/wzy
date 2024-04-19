@@ -42,7 +42,7 @@ $2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$
 &emsp;&emsp; 下图（a）显示了不同 $\sigma$ 下的Anscombe变换曲线，图c显示了不同 $\sigma$ 下精确无偏逆与代数逆的差异，图（b）则显示了不同 $\sigma$ 下Anscombe变换后的方差表现，可以发现当 $\sigma>2$ 时 变换后方差更稳定在理想值1附近。
 
 <div align=center>
-<img src="https://github.com/623-wzy/wzy/blob/main/image/Anscombe_transform_animated.gif"/>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/screenshot-20240419-145017.png"/>
 </div>
 
 &emsp;&emsp; 广义Anscombe逆变换表示为： $$ y\mapsto \frac{1}{4} y^{2} - \frac{1}{8} + \frac{1}{4}\sqrt{\frac{3}{2}} y^{-1} - \frac{11}{8} y^{-2} + \frac{5}{8} \sqrt{\frac{3}{2}} y^{-3} - \sigma^{2} , \hat{y} =a * y+m ，\sigma = \frac{\hat{\sigma}}{a}$$ <br>
