@@ -11,20 +11,29 @@
 </div>
 
 ### AT (Anscombe transform)
-&emsp;&emsp; 在统计学中，Anscombe变换以Francis Anscombe的名字命名，是一种方差稳定变换，它将具有泊松分布的随机变量变换为具有近似标准高斯分布的随机变量。Anscombe变换广泛应用于光子限制成像（天文学、X 射线），其中图像自然遵循泊松定律。Anscombe变换通常用于对数据进行预处理，以使标准差近似恒定。然后采用针对加性高斯白噪声框架设计的去噪算法；然后通过对去噪数据应用逆安斯科姆变换来获得最终估计。<br>
+##### Anscombe变换
+&emsp;&emsp; **Anscombe变换**以Francis Anscombe的名字命名，是一种方差稳定变换，它将具有泊松分布的随机变量变换为具有近似标准高斯分布的随机变量。Anscombe变换广泛应用于光子限制成像（天文学、X 射线），其中图像自然遵循泊松定律。Anscombe变换通常用于对数据进行预处理，以使标准差近似恒定。然后采用针对加性高斯白噪声框架设计的去噪算法；然后通过对去噪数据应用逆安斯科姆变换来获得最终估计。<br>
 &emsp;&emsp; 对于泊松分布，平均值 $m$ 与方差 $\nu$ 不独立： $m=\nu$ 。Anscombe变换： $$A：x\mapsto 2\sqrt{x+3/8} $$ <br>
-旨在变换数据，使方差大约为1，以获得足够大的均值；对于均值为零方差仍为0。它转换泊松数据 $x$ （均值 $m$ ）到均值为 
+&emsp;&emsp; 旨在变换数据，使方差大约为1，以获得足够大的均值；对于均值为零方差仍为0。它转换泊松数据 $x$ （均值 $m$ ）到均值为 
 $2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$ 和 标准差为 $1+O\left(\frac{1}{m^{2}}\right)$ 的近似高斯数据。对于m比较大的情况，这种近似会更加准确。至于为何选择常数项为3/8，是因为 $2\sqrt{x+c} $ 的方差变换形式会有一个附加项为 $\frac{\frac{3}{8} -c}{m}$ <br>
 
 <div align=center>
 <img src="https://github.com/623-wzy/wzy/blob/main/image/20181025105803813.png"/>
 </div>
 
-Anscombe变换动画。 $\mu$ 是Anscombe变换的泊松分布的平均值，并且通过减去 $2\sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}$ 进行标准化， $\sigma$ 是其标准差。可以发现随着m变化， $m^{\frac{3}{2} } \mu 和m^{2}(\sigma -1)$ 大致保持[0,10]之间的波动，进一步支持了Anscombe变换后均值和方差的估计。<br>
+&emsp;&emsp; Anscombe变换动画。 $\mu$ 是Anscombe变换的泊松分布的平均值，并且通过减去 $2\sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}$ 进行标准化， $\sigma$ 是其标准差。可以发现随着m变化， $m^{\frac{3}{2} } \mu 和m^{2}(\sigma -1)$ 大致保持[0,10]之间的波动，进一步支持了Anscombe变换后均值和方差的估计。<br>
 
 <div align=center>
 <img src="https://github.com/623-wzy/wzy/blob/main/image/Anscombe_transform_animated.gif"/>
 </div>
+
+#### Anscombe逆变换
+&emsp;&emsp; 当Anscombe变换应用于降噪时，还需要对处理后数据进行**Anscombe逆变换**以返回方差稳定的降噪后数据。Anscombe变换的代数逆形式： $$A^{-1} ：y\mapsto (\frac{y}{2})^{2}-\frac{3}{8} $$ <br>
+&emsp;&emsp; 由于平方根是非线性变换，代数逆形式往往会给Anscombe变换的平均值m的估计带来预期外的偏差。为了消除偏差影响：
+&emsp;&emsp; **渐进无偏逆：** $y\mapsto (\frac{y}{2})^{2}-\frac{1}{8} $ <br>
+&emsp;&emsp; **减轻了偏差问题，但不适用光子限制成像，隐式映射提供了精确无偏逆：** $\mathrm{E}\left[\left.2 \sqrt{x+\frac{3}{8}} \right\rvert\, m\right]=2 \sum_{x=0}^{+\infty}\left(\sqrt{x+\frac{3}{8}} \cdot \frac{m^{x} e^{-m}}{x !}\right) \mapsto m$ <br>
+&emsp;&emsp; **精确无偏逆的封闭形式近似：** $y\mapsto \frac{1}{4} y^{2} - \frac{1}{8} + \frac{1}{4}\sqrt{\frac{3}{2}} y^{-1} - \frac{11}{8} y^{-2} + \frac{5}{8} \sqrt{\frac{3}{2}} y^{-3} $ <br>
+
 
 ```python
 def gat(z,sigma,alpha,g):
