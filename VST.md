@@ -17,7 +17,13 @@
 $2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$ 和 标准差为 $1+O\left(\frac{1}{m^{2}}\right)$ 的近似高斯数据。对于m比较大的情况，这种近似会更加准确。至于为何选择常数项为3/8，是因为 $2\sqrt{x+c} $ 的方差变换形式会有一个附加项为 $\frac{\frac{3}{8} -c}{m}$ <br>
 
 <div align=center>
-<img src="https://github.com/623-wzy/wzy/blob/main/image/20180809142357833.png"/>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/20181025105803813.png"/>
+</div>
+
+Anscombe变换动画。 $\mu$ 是Anscombe变换的泊松分布的平均值，并且通过减去 $2\sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}$ 进行标准化， $\sigma$ 是其标准差。可以发现随着m变化， $m^{\frac{3}{2} } \mu 和m^{2}(\sigma -1)$ 大致保持[0,10]之间的波动，进一步支持了Anscombe变换后均值和方差的估计。<br>
+
+<div align=center>
+<img src="https://github.com/623-wzy/wzy/blob/main/image/Anscombe_transform_animated.gif"/>
 </div>
 
 ```python
