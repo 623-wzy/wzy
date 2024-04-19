@@ -30,9 +30,9 @@ $2 \sqrt{m+\frac{3}{8}}-\frac{1}{4 m^{1 / 2}}+O\left(\frac{1}{m^{3 / 2}}\right)$
 #### Anscombe逆变换
 &emsp;&emsp; 当Anscombe变换应用于降噪时，还需要对处理后数据进行**Anscombe逆变换**以返回方差稳定的降噪后数据。Anscombe变换的代数逆形式： $$A^{-1} ：y\mapsto (\frac{y}{2})^{2}-\frac{3}{8} $$ <br>
 &emsp;&emsp; 由于平方根是非线性变换，代数逆形式往往会给Anscombe变换的平均值m的估计带来预期外的偏差。为了消除偏差影响：
-&emsp;&emsp; **渐进无偏逆：** $y\mapsto (\frac{y}{2})^{2}-\frac{1}{8} $ <br>
-&emsp;&emsp; **减轻了偏差问题，但不适用光子限制成像，隐式映射提供了精确无偏逆：** $\mathrm{E}\left[\left.2 \sqrt{x+\frac{3}{8}} \right\rvert\, m\right]=2 \sum_{x=0}^{+\infty}\left(\sqrt{x+\frac{3}{8}} \cdot \frac{m^{x} e^{-m}}{x !}\right) \mapsto m$ <br>
-&emsp;&emsp; **精确无偏逆的封闭形式近似：** $y\mapsto \frac{1}{4} y^{2} - \frac{1}{8} + \frac{1}{4}\sqrt{\frac{3}{2}} y^{-1} - \frac{11}{8} y^{-2} + \frac{5}{8} \sqrt{\frac{3}{2}} y^{-3} $ <br>
+&emsp;&emsp; **渐进无偏逆：** $$y\mapsto (\frac{y}{2})^{2}-\frac{1}{8} $$ <br>
+&emsp;&emsp; **减轻了偏差问题，但不适用光子限制成像，隐式映射提供了精确无偏逆：** $$\mathrm{E}\left[\left.2 \sqrt{x+\frac{3}{8}} \right\rvert\, m\right]=2 \sum_{x=0}^{+\infty}\left(\sqrt{x+\frac{3}{8}} \cdot \frac{m^{x} e^{-m}}{x !}\right) \mapsto m$$ <br>
+&emsp;&emsp; **精确无偏逆的封闭形式近似：** $$y\mapsto \frac{1}{4} y^{2} - \frac{1}{8} + \frac{1}{4}\sqrt{\frac{3}{2}} y^{-1} - \frac{11}{8} y^{-2} + \frac{5}{8} \sqrt{\frac{3}{2}} y^{-3} $$ <br>
 
 
 ```python
